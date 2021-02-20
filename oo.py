@@ -121,13 +121,35 @@ class User:
 
 
 class Book(object):
-    """A Book object."""
+    """A Book object. """
 
     def __init__(self, title, author):
         """Create a book with the given title and author."""
 
         self.title = title
         self.author = author
+
+class Library(object):
+    """This is a new class "Library"."""
+
+    def __init__(self, title, author):
+        super().__init__(title, author)
+        self.books = []
+
+    # def create_and_add_book(self, title, author):
+    #     self.books.append(title, author)
+
+    # def find_books_by_author(self):
+    #     pass
+
+
+# test cases
+if __name__ == "__main__":
+    Library("Harry Potter","JK Rowing")
+    # print(Library.create_and_add_book("Harry Potter","JK Rowing"))
+
+    
+
 
 
 """5. Rectangle"""
@@ -144,5 +166,40 @@ class Rectangle:
 
     def calculate_area(self):
         """Return the area of the rectangle."""
+        
+        result = self.length * self.width
+        # print(result)
+        return (result)
 
-        return self.length * self.width
+class Square(Rectangle):
+    """A square- subclass."""
+
+    def __init__(self, length, width):
+        super().__init__(length, width)
+
+    def calculate_area(self):
+        """Validate if square is valid"""
+
+        if self.length == self.width:
+            result = super().calculate_area()
+            return result
+
+        else:
+            print("Invalid square")
+            return None
+
+if __name__ == "__main__":
+    example1 = Rectangle(2, 3)
+    print(f"Rectangle Area should be 6: {example1.calculate_area()}")
+    print("")
+
+    example2 = Rectangle(2, 2)
+    print(f"Rectangle Area should be 4: {example2.calculate_area()}")
+    print("")
+    
+    example3 = Square(2, 3)
+    print(f"Rectangle Area should be None: {example3.calculate_area()}")
+    print("")
+
+    example4 = Square(2, 2)
+    print(f"Rectangle Area should be 4: {example4.calculate_area()}")

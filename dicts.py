@@ -28,8 +28,12 @@ def count_words(phrase):
         >>> print_dict(count_words("Porcupine see, porcupine do."))
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
     """
-
-    return {}
+    counts = {}
+    phrase = phrase.split()
+    for word in phrase:
+        counts[word] = counts.get(word, 0) + 1
+    
+    return counts
 
 
 def print_melon_at_price(price):
