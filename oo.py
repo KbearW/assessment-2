@@ -136,8 +136,9 @@ class Library(object):
         super().__init__(title, author)
         self.books = []
 
-    # def create_and_add_book(self, title, author):
-    #     self.books.append(title, author)
+    def create_and_add_book(self, title, author):
+        
+        self.books.append(title, author)
 
     # def find_books_by_author(self):
     #     pass
@@ -146,6 +147,7 @@ class Library(object):
 # test cases
 if __name__ == "__main__":
     Library("Harry Potter","JK Rowing")
+    print(Library.books)
     # print(Library.create_and_add_book("Harry Potter","JK Rowing"))
 
     

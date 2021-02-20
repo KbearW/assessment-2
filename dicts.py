@@ -35,6 +35,13 @@ def count_words(phrase):
     
     return counts
 
+# if __name__ == "__main__":
+#     phrase1 = "each word appears once"
+#     print(f"Should return:['appears': 1, 'each': 1, 'once': 1, 'word': 1:] --> {count_words(phrase1)}")
+#     phrase2 = "rose is a rose is a rose"
+#     print(f"Should return:['a': 2, 'is': 2, 'rose': 3] --> {(count_words(phrase2))}")
+#     phrase3 = "Porcupine see, porcupine do."
+#     print(f"Should return:['Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1] --> {(count_words(phrase3))}")
 
 def print_melon_at_price(price):
     """Given a price, print all melons available at that price, in alphabetical order.
@@ -61,8 +68,30 @@ def print_melon_at_price(price):
         >>> print_melon_at_price(5.50)
         None found
     """
+    melon_dict = {1: 'Honeydew', 2: 'Cantaloupe', 3: 'Watermelon', 4: 'Musk', 5: 'Crenshaw', 6: 'Christmas'}
+    price_dict = {1: 2.50, 2: 2.50, 3: 2.95, 4: 3.25, 5: 3.25, 6: 14.25}
 
-    return
+    result = []
+    for k, v in price_dict.items():
+        if v == price:
+            result.append(melon_dict[k])
+    
+    result.sort()
+    for i in result:
+        print(i)
+
+    
+    if result == []:
+        print("None found")
+    
+    # test cases, will return "None" since the prompt asks for print!
+# if __name__ == "__main__":
+#     print(f"The result should print: Cantaloupe & Honeydew: \n{print_melon_at_price(2.50)}")
+#     print("")
+#     print(f"The result should be Watermelon: \n{print_melon_at_price(2.95)}")
+#     print("")
+#     print(f"The result should be None found: \n{print_melon_at_price(5.50)}")
+
 
 
 def translate_to_pirate_talk(phrase):
@@ -103,8 +132,18 @@ def translate_to_pirate_talk(phrase):
         >>> translate_to_pirate_talk("my student is not a man!")
         'me swabbie be not a man!'
     """
+    result = None
+    translation = {'sir': 'matey', 'hotel': 'fleabag', 'student': 'swabbie', 'man': 'matey'}
+    english = {1: 'sir', 2: 'hotel'}
+    pirate = {1: 'matey', 2:'fleabag'}
+    phrase = phrase.split()
+    for k, v in english.items():
+        for w in phrase:
+            if w == english[v]:
+                result.append(pirate[k])
+        
 
-    return ""
+    return result
 
 
 def kids_game(names):
