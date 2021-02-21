@@ -132,30 +132,20 @@ def translate_to_pirate_talk(phrase):
         >>> translate_to_pirate_talk("my student is not a man!")
         'me swabbie be not a man!'
     """
-    # create dict: maybe 1 or 2 - depends on setup
-    # iterate over the dict for phrase
-        # translate the words to the new lanuage, if not found, repeat original words
 
     result =[]
     translation = {'sir': 'matey', 'hotel': 'fleabag', 'student': 'swabbie', 'man': 'matey', 
                     'professor':'foul blaggart', 'restaurant':'galley','your':'yer','excuse':'arr',
                     'students':'swabbies','are':'be','restroom':'head','my':'me','is':'be'}
-    # english = {1: 'sir', 2: 'hotel'}
-    # pirate = {1: 'matey', 2:'fleabag'}
-
-    """Nope, still not working!"""
+    
+    
     phrase = phrase.split()
-    # print(f'input phrase is: {phrase}')
-    # print("#############")
-    # print(f'dict is: {translation}')
-    # print("#############")
     
     for word in phrase:
-        # print(word)
+        
         if word in translation.keys():
             result.append(translation[word])
         else:
-            # print('None')
             result.append(word)
 
     str1 = " "
@@ -181,9 +171,9 @@ def kids_game(names):
     Do the following:
 
     1. Always start with the first word ("bagon", in this example).
-
+        ok
     2. Add it to the results.
-
+        ok
     3. Use the last letter of that word to look for the next word.
        Since "bagon" ends with n, find the *first* word starting
        with "n" in our list --- in this case, "nosepass".
@@ -216,7 +206,35 @@ def kids_game(names):
     a dictionary (with the super-fast lookup they provide) can help;
     good solutions here will definitely require a dictionary.
     """
-    print(names)
-    result = []
-    name = set(name)
-    return []
+
+    result = []    
+
+    first_word = names[0]
+    result.append(first_word)
+    names.remove(first_word)
+
+    # print(f"after 1 round, name list is: {names}")
+    # print(f"after 1 round, result is: {result}")
+
+    result_last_letter = result[len(result)-1][-1]
+    # print(f'last letter is: {result_last_letter}')
+    # print(f'L221: {names}')
+    # print(len(names))
+   
+    while len(names) > 1:
+        for i in range(1,len(names)-1):
+            if result_last_letter == names[i][0]:
+                # print(f" L225 name is: {names}")
+                result.append(names[i])
+                names.remove(names[i])
+                # print(f"L228 name is: {names}")
+                # print(f"L229 len of name:{len(names)}")
+                # print(f"L230 result is: {result}")
+                
+            else:
+                pass
+                # names.remove(names[0])
+
+    print(result)
+    return result
+    '''Q4 isn't complete.'''
