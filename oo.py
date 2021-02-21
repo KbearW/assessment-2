@@ -129,25 +129,28 @@ class Book(object):
         self.title = title
         self.author = author
 
-class Library(object):
+class Library:
     """This is a new class "Library"."""
 
     def __init__(self, title, author):
-        super().__init__(title, author)
+        self.title = title
+        self.author = author
         self.books = []
 
     def create_and_add_book(self, title, author):
+        self.books.append(Book)
         
-        self.books.append(title, author)
 
-    # def find_books_by_author(self):
-    #     pass
+    def find_books_by_author(self, author):
+        for self.author in self.books:
+            print(self.books)
+
 
 
 # test cases
 if __name__ == "__main__":
     Library("Harry Potter","JK Rowing")
-    print(Library.books)
+    # print(Library.books())
     # print(Library.create_and_add_book("Harry Potter","JK Rowing"))
 
     

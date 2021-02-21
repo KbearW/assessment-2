@@ -132,18 +132,43 @@ def translate_to_pirate_talk(phrase):
         >>> translate_to_pirate_talk("my student is not a man!")
         'me swabbie be not a man!'
     """
-    result = None
-    translation = {'sir': 'matey', 'hotel': 'fleabag', 'student': 'swabbie', 'man': 'matey'}
-    english = {1: 'sir', 2: 'hotel'}
-    pirate = {1: 'matey', 2:'fleabag'}
-    phrase = phrase.split()
-    for k, v in english.items():
-        for w in phrase:
-            if w == english[v]:
-                result.append(pirate[k])
-        
+    # create dict: maybe 1 or 2 - depends on setup
+    # iterate over the dict for phrase
+        # translate the words to the new lanuage, if not found, repeat original words
 
-    return result
+    result =[]
+    translation = {'sir': 'matey', 'hotel': 'fleabag', 'student': 'swabbie', 'man': 'matey', 
+                    'professor':'foul blaggart', 'restaurant':'galley','your':'yer','excuse':'arr',
+                    'students':'swabbies','are':'be','restroom':'head','my':'me','is':'be'}
+    # english = {1: 'sir', 2: 'hotel'}
+    # pirate = {1: 'matey', 2:'fleabag'}
+
+    """Nope, still not working!"""
+    phrase = phrase.split()
+    # print(f'input phrase is: {phrase}')
+    # print("#############")
+    # print(f'dict is: {translation}')
+    # print("#############")
+    
+    for word in phrase:
+        # print(word)
+        if word in translation.keys():
+            result.append(translation[word])
+        else:
+            # print('None')
+            result.append(word)
+
+    str1 = " "
+    
+    print(str1.join(result))
+
+    return str1.join(result)
+
+# if __name__ == "__main__":
+#     translate_to_pirate_talk("my student is not a man")
+#     translate_to_pirate_talk("my student is not a man!")
+
+
 
 
 def kids_game(names):
@@ -191,5 +216,7 @@ def kids_game(names):
     a dictionary (with the super-fast lookup they provide) can help;
     good solutions here will definitely require a dictionary.
     """
-
+    print(names)
+    result = []
+    name = set(name)
     return []
