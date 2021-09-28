@@ -129,29 +129,38 @@ class Book(object):
         self.title = title
         self.author = author
 
+    def __repr__(self):
+        return str(f"<Book Title: {self.title}, author: {self.author}>")
+
+
 class Library:
     """This is a new class "Library"."""
 
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
+    def __init__(self):
         self.books = []
 
+        # self.books = [book0(title, author), book2(title, author)]
+
     def create_and_add_book(self, title, author):
-        self.books.append(Book)
-        
+        self.books.append(Book(title, author))
+        # Append only takes 1 argument! 
 
     def find_books_by_author(self, author):
-        for self.author in self.books:
-            print(self.books)
+        for book in self.books:
+            if book.author == author:
+                print(book)
 
 
 
 # test cases
 if __name__ == "__main__":
-    Library("Harry Potter","JK Rowing")
+    L = Library()
     # print(Library.books())
-    # print(Library.create_and_add_book("Harry Potter","JK Rowing"))
+    L.create_and_add_book("Harry Potter","JK Rowing")
+    L.create_and_add_book("Harry Potter2","JK Rowing")
+    L.create_and_add_book("Harry Potter3","JK Rowing")
+    L.create_and_add_book("Harry Potter","J")
+    L.find_books_by_author("JK Rowing")
 
     
 
@@ -193,18 +202,18 @@ class Square(Rectangle):
             print("Invalid square")
             return None
 
-if __name__ == "__main__":
-    example1 = Rectangle(2, 3)
-    print(f"Rectangle Area should be 6: {example1.calculate_area()}")
-    print("")
+# if __name__ == "__main__":
+#     example1 = Rectangle(2, 3)
+#     print(f"Rectangle Area should be 6: {example1.calculate_area()}")
+#     print("")
 
-    example2 = Rectangle(2, 2)
-    print(f"Rectangle Area should be 4: {example2.calculate_area()}")
-    print("")
+#     example2 = Rectangle(2, 2)
+#     print(f"Rectangle Area should be 4: {example2.calculate_area()}")
+#     print("")
     
-    example3 = Square(2, 3)
-    print(f"Rectangle Area should be None: {example3.calculate_area()}")
-    print("")
+#     example3 = Square(2, 3)
+#     print(f"Rectangle Area should be None: {example3.calculate_area()}")
+#     print("")
 
-    example4 = Square(2, 2)
-    print(f"Rectangle Area should be 4: {example4.calculate_area()}")
+#     example4 = Square(2, 2)
+#     print(f"Rectangle Area should be 4: {example4.calculate_area()}")
